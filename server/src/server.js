@@ -31,6 +31,16 @@ app.use('/api/beneficiaries', beneficiaryRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/admin', adminRoutes);
+
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "FinFlow BFSI API is running 🚀",
+    status: "healthy",
+    environment: process.env.NODE_ENV
+  });
+});
+
 app.use(notFound);
 app.use(errorHandler);
 
